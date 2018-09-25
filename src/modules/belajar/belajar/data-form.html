@@ -15,37 +15,37 @@
             </au-textbox>
 
             <au-textbox
-            label="Nama Barang"
-            value.bind="data.Name"
-            error.bind="error.name"
-            read-only.bind="readOnly">
+                label="Nama Barang"
+                value.bind="data.Name"
+                error.bind="error.name"
+                read-only.bind="readOnly">
             </au-textbox>
 
             <au-autocomplete
-            label="Satuan"
-            value.bind="UOM"
-            error.bind="error.uom"
-            loader.bind="uomLoader"
-            read-only.bind="readOnly"
-            key="Unit"
-            text="Unit"
-          ></au-autocomplete>
+                label="Satuan"
+                value.bind="UOM"
+                error.bind="error.uom"
+                loader.bind="uomLoader"
+                read-only.bind="readOnly"
+                key="Unit"
+                text="Unit"
+            ></au-autocomplete>
           
-          <au-autocomplete
-            label="Mata Uang"
-            value.bind="Currency"
-            error.bind="error.currency"
-            loader.bind="currencyLoader"
-            read-only.bind="readOnly"
-            key="Symbol"
-            text="Code"      
-          ></au-autocomplete>
+            <au-autocomplete
+                label="Mata Uang"
+                value.bind="Currency"
+                error.bind="error.currency"
+                loader.bind="currencyLoader"
+                read-only.bind="readOnly"
+                key="Symbol"
+                text="Code"      
+            ></au-autocomplete>
 
             <au-textbox
-            label="Harga Barang"
-            value.bind="data.Price"
-            error.bind="error.price"
-            read-only.bind="readOnly">
+                label="Harga Barang"
+                value.bind="data.Price"
+                error.bind="error.price"
+                read-only.bind="readOnly">
             </au-textbox>
 
             <au-textbox
