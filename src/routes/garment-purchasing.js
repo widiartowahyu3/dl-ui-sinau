@@ -439,5 +439,19 @@ module.exports = [
             //permission: { "*": 0 },
             iconClass: 'fa fa-dashboard'
         }
-    }
+    },
+
+    {
+        route: 'coba-sinau',
+        name: 'coba-sinau',
+        moduleId: './modules/garment-purchasing/coba-sinau/index',
+        nav: true,
+        title: 'Sinau',
+        auth: true,
+        settings: {
+            group: "g-purchasing",
+            permission: {"C9": 1, "PG": 1, "B9": 1, "B1": 1},
+            iconClass: 'fa fa-dashboard'
+        }
+    },
 ]
