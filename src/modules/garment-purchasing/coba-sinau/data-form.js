@@ -19,7 +19,6 @@ export class DataForm {
         return (this.data.Id || '').toString() != '';
     }
 
-
     bind(context) {
         this.context = context;
         this.data = this.context.data;
