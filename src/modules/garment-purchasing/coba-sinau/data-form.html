@@ -1,23 +1,23 @@
 <template>
-    <div class="row">
-        <div class="col-md-10">
-            <au-input-form
-                title.bind="title"
-                with.bind="context"
-                options.bind="formOptions" >
+        
+        <au-input-form
+            title.bind="title"
+            with.bind="context" >
 
             <au-textbox
                 label="Kode Barang"
                 value.bind="data.Code"
                 error.bind="error.code"
-                read-only.bind="(readOnly || isEdit)">
+                read-only.bind="(readOnly || isEdit)"
+                options.bind="controlOptions">
             </au-textbox>
 
             <au-numeric
                 label="Jumlah Barang"
                 value.bind="data.Jumlah"
                 error.bind="error.jumlah"
-                read-only.bind="readOnly">
+                read-only.bind="readOnly"
+                options.bind="controlOptions">
             </au-numeric>
 
             <au-datepicker 
@@ -27,10 +27,24 @@
                 read-only.bind="readOnly"
                 options.bind="controlOptions">
             </au-datepicker>
+
+            <au-textbox
+                show.bind="error.ItemsCount"
+                error.bind="error.ItemsCount"
+                read-only="true">
+            </au-textbox>
+
+            <au-collection 
+                items.bind="data.Items" 
+                errors.bind="error.Items"
+                columns.bind="itemsColumns"
+                read-only.bind="readOnly"
+                add.bind="addItems" 
+                remove.bind="removeItems" 
+                item-template="modules/garment-purchasing/coba-sinau/template/coba-sinau-item" >
+            </au-collection>
           
 
             <template replaceable part="actions"></template>
         </au-input-form>
-        </div>
-    </div>
 </template>

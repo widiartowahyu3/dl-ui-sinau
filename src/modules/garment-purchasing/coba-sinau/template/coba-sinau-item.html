@@ -1,0 +1,39 @@
+<template>
+    <tr>
+        <td>
+            <au-autocomplete 
+                value.bind="dataProduct" 
+                error.bind="error.Barang"
+                loader.bind="productLoader"
+                placeholder="cari barang" 
+                key="code"
+                text= "Name"
+                read-only.bind="options.readOnly"
+                options.bind="controlOptions">
+            </au-textbox>
+        </td>
+        
+        <td>
+            <au-numeric 
+                value.bind="data.Jumlah" 
+                error.bind="error.Jumlah"
+                read-only.bind="options.readOnly"
+                options.bind="controlOptions">
+            </au-numeric>
+        </td>
+        <td >
+            <au-autocomplete 
+                value.bind="dataUom" 
+                error.bind="error.Satuan"
+                loader.bind="uomLoader"
+                placeholder="cari barang" 
+                key="code"
+                text= "Unit"
+                read-only.bind="options.readOnly"
+                options.bind="controlOptions">
+            </au-textbox>
+        </td>
+        <td if.bind="!options.readOnly"><button class="btn btn-danger pull-right" click.delegate="onremove(data, $event)">-</button></td>
+     </tr>
+</template>
+

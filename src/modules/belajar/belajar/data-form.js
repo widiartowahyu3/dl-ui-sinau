@@ -3,7 +3,6 @@ import { inject, bindable, computedFrom } from 'aurelia-framework';
 var CurrencyLoader = require('../../../loader/currency-loader');
 var UomLoader = require('../../../loader/uom-loader');
 
-
 export class DataForm {
     @bindable title;
     @bindable readOnly;
