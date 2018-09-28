@@ -21,18 +21,25 @@
                 options.bind="controlOptions">
             </au-numeric>
         </td>
+
         <td >
-            <au-autocomplete 
-                value.bind="dataUom" 
-                error.bind="error.Satuan"
-                loader.bind="uomLoader"
-                placeholder="cari barang" 
-                key="code"
-                text= "Unit"
+            <au-datepicker 
+                value.bind="data.DateConfirm" 
+                error.bind="error.dateconfirm"
                 read-only.bind="options.readOnly"
                 options.bind="controlOptions">
             </au-textbox>
         </td>
+
+        <td >
+            <au-multiline 
+                value.bind="data.Keterangan" 
+                error.bind="error.keterangan"
+                read-only.bind="options.readOnly"
+                options.bind="controlOptions">
+            </au-multiline>
+        </td>
+
         <td if.bind="!options.readOnly"><button class="btn btn-danger pull-right" click.delegate="onremove(data, $event)">-</button></td>
      </tr>
 </template>

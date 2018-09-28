@@ -18,6 +18,8 @@ export class DataForm {
         }
     }
 
+    DeliveryOptions = ["","Garmen", "Tekstil"];
+
     bind(context) {
         this.context = context;
         this.data = this.context.data;
