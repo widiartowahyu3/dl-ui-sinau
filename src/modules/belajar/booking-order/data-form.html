@@ -1,0 +1,90 @@
+<template>
+            <au-input-form
+                title.bind="title"
+                with.bind="context"
+                options.bind="formOptions" >
+
+            <au-textbox
+                label="Tipe Booking"
+                value.bind="data.BookingType"
+                error.bind="error.bookingtype"
+                read-only.bind="(readOnly || isEdit)"
+                options.bind="controlOptions">
+            </au-textbox>
+
+            <au-autocomplete
+                value.bind="data.division" 
+                error.bind="error.division"
+                label="Division" 
+                loader.bind="divisionLoader"
+                placeholder="cari division"
+                text = "Name"
+                key="code"
+                read-only.bind="(readOnly || isEdit)"
+                options.bind="controlOptions">
+            </au-autocomplete>
+
+            <au-datepicker 
+                label="Tanggal Booking" 
+                value.bind="data.BookingDate" 
+                error.bind="error.bookingdate" 
+                read-only.bind="readOnly"
+                options.bind="controlOptions">
+             </au-datepicker>
+
+             <au-autocomplete
+                value.bind="data.buyers" 
+                error.bind="error.buyers"
+                label="Buyer" 
+                loader.bind="buyersLoader"
+                placeholder="cari buyer"
+                text = "Name"
+                key="code"
+                read-only.bind="(readOnly || isEdit)"
+                options.bind="controlOptions">
+            </au-autocomplete>
+
+            <au-numeric
+                label="Jumlah Order"
+                value.bind="data.OrderQuantity"
+                error.bind="error.orderquantity"
+                read-only.bind="readOnly"
+                options.bind="controlOptions">
+            </au-numeric>
+
+            <au-datepicker 
+                label="Tanggal Pengiriman" 
+                value.bind="data.DeliveryDate" 
+                error.bind="error.deliverydate" 
+                read-only.bind="readOnly"
+                options.bind="controlOptions">
+            </au-datepicker>
+
+            <au-multiline 
+                label="Keterangan" 
+                value.bind="data.remark"
+                placeholder="tambah keterangan" 
+                read-only.bind="readOnly"
+                options.bind="controlOptions">
+             </au-multiline>
+
+            <au-textbox
+            show.bind="error.ItemsCount"
+            error.bind="error.ItemsCount"
+            read-only="true">
+        </au-textbox>
+
+        <au-collection 
+            items.bind="data.Items" 
+            errors.bind="error.Items"
+            columns.bind="itemsColumns"
+            read-only.bind="readOnly"
+            add.bind="addItems" 
+            remove.bind="removeItems" 
+            item-template="modules/belajar/booking-order/template/booking-order-item" >
+        </au-collection>
+          
+
+            <template replaceable part="actions"></template>
+        </au-input-form>
+</template>
