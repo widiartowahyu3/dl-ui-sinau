@@ -4,6 +4,14 @@
                 with.bind="context"
                 options.bind="formOptions" >
 
+            <au-textbox 
+                label="Kode Barang" 
+                value.bind="data.Code" 
+                read-only.bind="true"
+                if.bind="(readOnly || isEdit)"
+                options.bind="controlOptions">
+            </au-textbox>
+
             <au-dropdown
                 label="Tipe Booking"
                 value.bind="data.BookingType"
@@ -14,14 +22,14 @@
             </au-dropdown>
 
             <au-autocomplete
-                value.bind="data.division" 
+                value.bind="data.Division" 
                 error.bind="error.division"
                 label="Division" 
                 loader.bind="divisionLoader"
                 placeholder="cari division"
                 text = "Name"
                 key="code"
-                read-only.bind="(readOnly || isEdit)"
+                read-only.bind="readOnly"
                 options.bind="controlOptions">
             </au-autocomplete>
 
@@ -34,14 +42,14 @@
              </au-datepicker>
 
              <au-autocomplete
-                value.bind="data.buyers" 
+                value.bind="data.Buyer"
                 error.bind="error.buyer"
                 label="Buyer" 
                 loader.bind="buyersLoader"
                 placeholder="cari buyer"
                 text = "Name"
                 key="code"
-                read-only.bind="(readOnly || isEdit)"
+                read-only.bind="readOnly"
                 options.bind="controlOptions">
             </au-autocomplete>
 
@@ -63,7 +71,8 @@
 
             <au-multiline 
                 label="Keterangan" 
-                value.bind="data.remark"
+                value.bind="data.Remark"
+                error.bind="error.remark" 
                 placeholder="tambah keterangan" 
                 read-only.bind="readOnly"
                 options.bind="controlOptions">

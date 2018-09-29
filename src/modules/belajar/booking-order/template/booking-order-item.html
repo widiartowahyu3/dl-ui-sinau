@@ -2,7 +2,7 @@
     <tr>
         <td>
             <au-autocomplete 
-                value.bind="dataProduct" 
+                value.bind="data.Product" 
                 error.bind="error.Barang"
                 loader.bind="productLoader"
                 placeholder="cari barang" 
@@ -15,8 +15,8 @@
         
         <td>
             <au-numeric 
-                value.bind="data.Jumlah" 
-                error.bind="error.Jumlah"
+                value.bind="data.Quantity" 
+                error.bind="error.orderquantity"
                 read-only.bind="options.readOnly"
                 options.bind="controlOptions">
             </au-numeric>
@@ -24,8 +24,8 @@
 
         <td >
             <au-datepicker 
-                value.bind="data.DateConfirm" 
-                error.bind="error.dateconfirm"
+                value.bind="data.ConfirmDate" 
+                error.bind="error.ConfirmDate"
                 read-only.bind="options.readOnly"
                 options.bind="controlOptions">
             </au-textbox>
@@ -33,8 +33,8 @@
 
         <td >
             <au-multiline 
-                value.bind="data.Keterangan" 
-                error.bind="error.keterangan"
+                value.bind="data.Remark" 
+                error.bind="error.Remark"
                 read-only.bind="options.readOnly"
                 options.bind="controlOptions">
             </au-multiline>

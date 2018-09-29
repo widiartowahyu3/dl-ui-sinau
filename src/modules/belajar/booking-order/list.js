@@ -20,7 +20,8 @@ export class List {
       field: "DeliveryDate", title: "Tanggal Pengiriman", formatter: function (value, data, index) {
         return moment(value).format("DD MMM YYYY");
       }
-    }
+    },
+    { field: "Remark", title: "Keterangan" }
   ];
 
   loader = (info) => {
@@ -38,9 +39,15 @@ export class List {
 
     return this.service.search(arg)
       .then(result => {
+        for (var data of result.data) {
+          data.Id = data.Id || data._id || 0;
+          data.DivisionName = data.Division.Name;
+          data.BuyerName = data.Buyer.Name;
+      }
         return {
           total: result.info.total,
           data: result.data
+
         }
       });
 

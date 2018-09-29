@@ -18,6 +18,11 @@ export class DataForm {
         }
     }
 
+    @computedFrom("data.Id")
+    get isEdit() {
+        return (this.data.Id || '').toString() != '';
+    }
+
     DeliveryOptions = ["","Garmen", "Tekstil"];
 
     bind(context) {
@@ -45,9 +50,9 @@ export class DataForm {
     }
 
     itemsColumns = [
-        { header: "Barangs" },
-        { header: "QuantityOrder" },
-        { header: "ConfirmDate" },
+        { header: "Barang " },
+        { header: "Jumlah" },
+        { header: "Tanggal Konfirmasi" },
         { header: "Keterangan" },
     ]
 
