@@ -9,7 +9,6 @@ export class cobasinauitem {
   activate(context) {
     this.data = context.data;
     this.error = context.error;
-    console.log(this.error);
     this.options = context.options;
     
     if (this.data.Barang) {

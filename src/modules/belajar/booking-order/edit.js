@@ -4,9 +4,14 @@ import {Service} from './service';
 
 @inject(Router, Service)
 export class Edit {
+
     constructor(router, service) {
         this.router = router;
         this.service = service;
+    }
+
+    bind() {
+        this.error = {};
     }
 
     async activate(params) {

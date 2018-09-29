@@ -1,84 +1,83 @@
 <template>
-            <au-input-form
-                title.bind="title"
-                with.bind="context"
-                options.bind="formOptions" >
+        <au-input-form
+            title.bind="title"
+            with.bind="context"
+            options.bind="formOptions" >
 
-            <au-textbox 
-                label="Kode Barang" 
-                value.bind="data.Code" 
-                read-only.bind="true"
-                if.bind="(readOnly || isEdit)"
-                options.bind="controlOptions">
-            </au-textbox>
+        <au-textbox 
+            label="Kode Barang" 
+            value.bind="data.Code" 
+            read-only.bind="true"
+            if.bind="(readOnly || isEdit)"
+            options.bind="controlOptions">
+        </au-textbox>
 
-            <au-dropdown
-                label="Tipe Booking"
-                value.bind="data.BookingType"
-                error.bind="error.bookingtype"
-                items.bind="DeliveryOptions"
-                read-only.bind="(readOnly || isEdit)"
-                options.bind="controlOptions">
-            </au-dropdown>
+        <au-dropdown
+            label="Tipe Booking"
+            value.bind="data.BookingType"
+            error.bind="error.bookingtype"
+            items.bind="DeliveryOptions"
+            read-only.bind="(readOnly || isEdit)"
+            options.bind="controlOptions">
+        </au-dropdown>
 
-            <au-autocomplete
-                value.bind="data.Division" 
-                error.bind="error.division"
-                label="Division" 
-                loader.bind="divisionLoader"
-                placeholder="cari division"
-                text = "Name"
-                key="code"
-                read-only.bind="readOnly"
-                options.bind="controlOptions">
-            </au-autocomplete>
+        <au-autocomplete
+            value.bind="data.Division" 
+            error.bind="error.division"
+            label="Division" 
+            loader.bind="divisionLoader"
+            placeholder="cari division"
+            text = "Name"
+            key="code"
+            read-only.bind="readOnly"
+            options.bind="controlOptions">
+        </au-autocomplete>
 
-            <au-datepicker 
-                label="Tanggal Booking" 
-                value.bind="data.BookingDate" 
-                error.bind="error.bookingdate" 
-                read-only.bind="readOnly"
-                options.bind="controlOptions">
-             </au-datepicker>
+        <au-datepicker 
+            label="Tanggal Booking" 
+            value.bind="data.BookingDate" 
+            error.bind="error.bookingdate" 
+            read-only.bind="readOnly"
+            options.bind="controlOptions">
+        </au-datepicker>
 
-             <au-autocomplete
-                value.bind="data.Buyer"
-                error.bind="error.buyer"
-                label="Buyer" 
-                loader.bind="buyersLoader"
-                placeholder="cari buyer"
-                text = "Name"
-                key="code"
-                read-only.bind="readOnly"
-                options.bind="controlOptions">
-            </au-autocomplete>
+        <au-autocomplete
+            value.bind="data.Buyer"
+            error.bind="error.buyer"
+            label="Buyer" 
+            loader.bind="buyersLoader"
+            placeholder="cari buyer"
+            text = "Name"
+            key="code"
+            read-only.bind="readOnly"
+            options.bind="controlOptions">
+        </au-autocomplete>
 
-            <au-numeric
-                label="Jumlah Order"
-                value.bind="data.OrderQuantity"
-                error.bind="error.orderquantity"
-                read-only.bind="readOnly"
-                options.bind="controlOptions">
-            </au-numeric>
+        <au-numeric
+            label="Jumlah Order"
+            value.bind="data.OrderQuantity"
+            error.bind="error.orderquantity"
+            read-only.bind="readOnly"
+            options.bind="controlOptions">
+        </au-numeric>
 
-            <au-datepicker 
-                label="Tanggal Pengiriman" 
-                value.bind="data.DeliveryDate" 
-                error.bind="error.deliverydate" 
-                read-only.bind="readOnly"
-                options.bind="controlOptions">
-            </au-datepicker>
+        <au-datepicker 
+            label="Tanggal Pengiriman" 
+            value.bind="data.DeliveryDate" 
+            error.bind="error.deliverydate" 
+            read-only.bind="readOnly"
+            options.bind="controlOptions">
+        </au-datepicker>
 
-            <au-multiline 
-                label="Keterangan" 
-                value.bind="data.Remark"
-                error.bind="error.remark" 
-                placeholder="tambah keterangan" 
-                read-only.bind="readOnly"
-                options.bind="controlOptions">
-             </au-multiline>
+        <au-multiline 
+            label="Keterangan" 
+            value.bind="data.Remark"
+            placeholder="tambah keterangan" 
+            read-only.bind="readOnly"
+            options.bind="controlOptions">
+        </au-multiline>
 
-            <au-textbox
+        <au-textbox
             show.bind="error.ItemsCount"
             error.bind="error.ItemsCount"
             read-only="true">
@@ -93,7 +92,6 @@
             remove.bind="removeItems" 
             item-template="modules/belajar/booking-order/template/booking-order-item" >
         </au-collection>
-          
 
             <template replaceable part="actions"></template>
         </au-input-form>
