@@ -7,6 +7,13 @@ import moment from 'moment';
 export class List {
   context = ["Rincian"];
   columns = [
+    {
+      field: "isPosted", title: "Post", checkbox: true, sortable: false,
+      formatter: function (value, data, index) {
+        this.checkboxEnabled = !data.isPosted;
+        return ""
+      }
+    },
     { field: "Code", title: "Kode Barang" },
     { field: "DivisionName", title: "Divisi" },
     {
@@ -21,9 +28,15 @@ export class List {
         return moment(value).format("DD MMM YYYY");
       }
     },
-    { field: "Remark", title: "Keterangan" }
+    { field: "Remark", title: "Keterangan" },
+    {
+      field: "isPosted", title: "Posted",
+      formatter: function (value, row, index) {
+        return value ? "SUDAH" : "BELUM";
+      }
+    }
   ];
-
+  
   loader = (info) => {
     var order = {};
     if (info.sort)
@@ -33,7 +46,7 @@ export class List {
       page: parseInt(info.offset / info.limit, 10) + 1,
       size: info.limit,
       keyword: info.search,
-      //select: ["Code", "Name", "Address", "City", "Country", "Contact", "Tempo","Type"],
+      //select: ["Code", "DivisionName", "BookingDate", "BuyerName", "OrderQuantity", "DeliveryDate", "Remark","isPosted"],
       order: order
     }
 
@@ -60,13 +73,24 @@ export class List {
     this.belajars = [];
   }
   
-  contextCallback(event) {
+  contextClickCallback(event) {
     var arg = event.detail;
     var data = arg.data;
     switch (arg.name) {
       case "Rincian":
-        this.router.navigateToRoute('view', { id: data.Id });
+        this.router.navigateToRoute('view', { id: data._id });
         break;
+    }
+  }
+
+
+  posting() {
+    if (this.dataToBePosted.length > 0) {
+      this.service.post(this.dataToBePosted).then(result => {
+        this.table.refresh();
+      }).catch(e => {
+        this.error = e;
+      })
     }
   }
 

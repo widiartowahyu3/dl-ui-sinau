@@ -37,5 +37,15 @@ export class Service extends RestService {
         var endpoint = `${serviceUri}?keyword=${code}`;
         return super.get(endpoint);
     }
+    
+    unpost(id) {
+        var endpoint = `purchase-requests/unpost/${id}`;
+        return super.put(endpoint);
+    }
+    
+    post(data) {
+        var endpoint = 'purchase-requests/post';
+        return super.post(endpoint, data);
+    }
 
 }
