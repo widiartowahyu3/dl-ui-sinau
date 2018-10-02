@@ -5,10 +5,18 @@ import moment from 'moment';
 
 @inject(Router, Service)
 export class List {
+  dataToBePosted = [];
+
+  rowFormatter(data, index) {
+    if (data.isPosted)
+      return { classes: "success" }
+    else
+      return {}
+  }
   context = ["Rincian"];
   columns = [
     {
-      field: "isPosted", title: "Post", checkbox: true, sortable: false,
+      field: "isPosting", title: "Post", checkbox: true, sortable: false,
       formatter: function (value, data, index) {
         this.checkboxEnabled = !data.isPosted;
         return ""
@@ -78,7 +86,8 @@ export class List {
     var data = arg.data;
     switch (arg.name) {
       case "Rincian":
-        this.router.navigateToRoute('view', { id: data._id });
+        console.log("data = "+data)
+        this.router.navigateToRoute('view', { id: data.Id });
         break;
     }
   }

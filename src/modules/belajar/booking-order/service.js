@@ -39,12 +39,12 @@ export class Service extends RestService {
     }
     
     unpost(id) {
-        var endpoint = `purchase-requests/unpost/${id}`;
+        var endpoint = `${serviceUri}/unpost/${id}`;
         return super.put(endpoint);
     }
     
     post(data) {
-        var endpoint = 'purchase-requests/post';
+        var endpoint = `${serviceUri}/post`;
         return super.post(endpoint, data);
     }
 
